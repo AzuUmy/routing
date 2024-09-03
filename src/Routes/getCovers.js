@@ -3,13 +3,13 @@ const axios = require('axios');
 const logger = require('../Logs/Logger');
 const router = new Router();
 
-router.post('/getAllMangas', async (ctx) => {
+router.post('/getAllCovers', async (ctx) => {
    const message = ctx.request.body;
 
 
-   if(message && message.action === 'getAllManga') {
+   if(message && message.action === 'getAllCovers') {
       try {
-         const response = await axios.get('http://app:3000/api/getMangas');
+         const response = await axios.get('http://app:3000/api/GetAllCovers');
          ctx.body = { status: 'Success', data: response.data };
          logger.info('Retrieving manga data successfully', { data: response.data });
       } catch (err) {
